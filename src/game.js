@@ -4,6 +4,7 @@ const Promise = require('bluebird');
 const inquirer = require('inquirer');
 
 const GameTime = require('./game_time');
+const Conversation = require('./conversation');
 
 function promiseWhile(condition, action) {
     const resolver = Promise.defer();
@@ -30,15 +31,11 @@ function promiseWhile(condition, action) {
 class Game {
     constructor() {
         this.gameTime = new GameTime();
+        this.activity = new Conversation();
     }
 
     prompt() {
-        return inquirer.prompt([{
-            type: 'list',
-            name: 'value',
-            message: 'Advance day',
-            choices: ['advance']
-        }])
+        return inquirer.prompt(this.activity.getPrompt());
     }
 
     update() {

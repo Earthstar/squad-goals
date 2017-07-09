@@ -13,13 +13,13 @@ describe('Person', function() {
 
         it('initializes property work', function() {
             const person = new Person();
-            expect(person.work).to.be.ok;
+            expect(person.work).to.equal(0);
         });
 
         it('initializes interests', function() {
             const person = new Person();
             expect(person.interests).to.be.ok;
-        })
+        });
     });
 
 });

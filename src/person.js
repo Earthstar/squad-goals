@@ -12,11 +12,16 @@ class Interest {
 }
 
 class Person {
-    constructor() {
-        this.name = '';
-        this.work = 0;
-        this.trust = 0;
-        this.enthusiasm = 0;
+    constructor({
+                    name = '',
+                    work = 0,
+                    trust = 0,
+                    enthusiasm = 0,
+    } = {}) {
+        this.name = name;
+        this.work = work;
+        this.trust = trust;
+        this.enthusiasm = enthusiasm;
 
         this.interests = _.map(INTERESTS, (interestName) => new Interest(interestName, 0));
 
