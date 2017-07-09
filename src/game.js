@@ -5,6 +5,7 @@ const inquirer = require('inquirer');
 
 const GameTime = require('./game_time');
 const Conversation = require('./conversation');
+const Population = require('./population');
 
 function promiseWhile(condition, action) {
     const resolver = Promise.defer();
@@ -32,6 +33,7 @@ class Game {
     constructor() {
         this.gameTime = new GameTime();
         this.activity = new Conversation();
+        this.population = Population.generate(5);
     }
 
     prompt() {
@@ -43,7 +45,8 @@ class Game {
     }
 
     render() {
-        console.log(`The day is: ${this.gameTime.date}`)
+        console.log(`The day is: ${this.gameTime.date}`);
+        console.log(this.population);
     }
 
     main() {

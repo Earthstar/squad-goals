@@ -8,6 +8,10 @@ class Conversation extends Activity {
         this.name = 'Conversation';
     }
 
+    getChoices() {}
+
+    getTopic() {}
+
     getPrompt() {
         return [{
             type: 'list',

@@ -1,9 +1,12 @@
 'use strict';
 
 class Activity {
-    constructor() {
-        this.participants = [];
-        this.name = ''
+    constructor({
+                    participants = [],
+                    name = ''
+    } = {}) {
+        this.participants = participants;
+        this.name = name
     }
 
     addParticipant(person) {
